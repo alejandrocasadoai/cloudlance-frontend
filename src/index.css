@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --orange: #ff9518;
+  --orange-dark: #e77d00;
+  --ink: #28251f;
+  --muted: #716d66;
+  --brown: #9d907e;
+  --cream: #fbfaf7;
+  --surface: #f5f3ee;
+  --line: #e8e4dc;
+
+  --success: #2f9e44;
+  --success-bg: #e7f5ec;
+  --warning: #e8a317;
+  --warning-bg: #fdf4e3;
+  --error: #e0392b;
+  --error-bg: #fdecea;
+  --info: #3b82f6;
+  --info-bg: #e8f0fe;
+}
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system,
+      "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--cream);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: rgba(255, 149, 24, 0.18);
+  }
+}
+
+@layer components {
+  .cl-surface {
+    background-color: var(--cream);
+  }
+  .cl-card {
+    background-color: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+  }
+  .cl-input {
+    width: 100%;
+    border: 1px solid var(--line);
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.9375rem;
+    color: var(--ink);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .cl-input::placeholder {
+    color: var(--brown);
+  }
+  .cl-input:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(255, 149, 24, 0.14);
+  }
+  .cl-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.375rem;
+    display: block;
+  }
+}
+
+@layer utilities {
+  .cl-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .cl-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--line);
+    border-radius: 999px;
+  }
+  .cl-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .cl-animate-in {
+    animation: cl-fade-in 0.25s ease both;
+  }
+}
+
+@keyframes cl-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cl-shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
